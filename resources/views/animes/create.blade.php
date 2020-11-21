@@ -16,8 +16,8 @@ Adicionar anime
             </ul>
         </div>
         @endif
-        <label for="Nome" class="">Anime: </label>
-        <input type="text" class="form-control" name="nome" id="nome">
+        <label for="nome" class="nome">Anime: </label>
+        <input type="text" class="form-control" name="nome" id="nome" required autocomplete="off">
     </div>
     <button class="btn btn-primary">
         Adicionar
