@@ -1,3 +1,3 @@
-### AnimesList
+# AnimesList
 
-# My personal list of animes
+### My personal list of animes
