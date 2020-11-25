@@ -7,4 +7,9 @@ class Anime extends Model
 {
     protected $table = 'animes';
     protected $fillable = ['nome'];
+    
+    public function temporadas()
+    {
+        return $this->hasMany(Temporada::class);
+    }
 }
