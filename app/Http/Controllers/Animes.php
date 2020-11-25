@@ -23,11 +23,11 @@ class Animes extends Controller
     {
         $animes = Anime::query()->orderBy('nome')->get();
         $mensagem = $request->session()->get('mensagem');
-        $erro = $request->session()->get('erro');
+        $id = 0;
         return view('animes.index', [
             'animes' => $animes,
             'mensagem' => $mensagem,
-            'erro' => $erro,
+            'id'=>$id
         ]);
     }
 

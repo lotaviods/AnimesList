@@ -2,15 +2,18 @@
 @extends ('layout')
 
 @section('head')
-Animes Luiz
+<div class="text-nowrap bd-highlight" style="width: 8rem;">
+  Lista de animes
+</div>
 @endsection
 
 @section('content')
 
 @include('mensagem', ['mensagem' => $mensagem])
 
-<a href="/animes/criar" class="btn btn-dark mb-2">Adicionar</a>
+<a href="/animes/criar" class="btn btn-success mb-2"><i class="fa fa-plus" aria-hidden="true"></i></a>
 <ul class="list-group">
+<<<<<<< HEAD
     @foreach ($animes as $anime)
     <li class="list-group-item d-flex justify-content-between align-items-center">
         <span id="nome-anime-{{ $anime->id }}">{{ $anime->nome }}</span>
@@ -40,6 +43,16 @@ Animes Luiz
                 <i class="far fa-trash-alt"></i>
             </button>
         @endauth
+=======
+    <?php foreach ($animes as $anime):?>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <b>{{$id += 1 }}</b>
+        {{ $anime->nome }}
+        <form method="post" action="/animes/ {{ addslashes($anime->id)}}" onsubmit="return confirm('Confirmar?')">
+            @csrf
+            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+
+>>>>>>> 47879ac6968b994eb134fd2837f9397739c56d2b
         </form>
     </span>
 </li>
