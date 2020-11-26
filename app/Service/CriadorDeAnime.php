@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class CriadorDeAnime
 {
-    public function criarAnime(string $nome, int $qtdTemporadas, int $ep_por_temporada): Anime
+    public function criarAnime(string $nome, $qtdTemporadas, $ep_por_temporada): Anime
     {
         $anime = Anime::create(['nome' => $nome]);
         DB::beginTransaction();

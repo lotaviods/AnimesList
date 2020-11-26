@@ -10,7 +10,7 @@ class CreateTemporadasTable extends Migration
     {
         Schema::create('temporadas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('numero');
+            $table->integer('numero')->nullable();
             $table->integer('anime_id');
 
             $table->foreign('anime_id')

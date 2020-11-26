@@ -21,7 +21,7 @@ class Animes extends Controller
 {
     public function index(Request $request)
     {
-        $animes = Anime::query()->orderBy('nome')->get();
+        $animes = Anime::query()->get();
         $mensagem = $request->session()->get('mensagem');
         $id = 0;
         return view('animes.index', [

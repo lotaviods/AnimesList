@@ -10,7 +10,7 @@ class CreateEpisodiosTable extends Migration
     {
         Schema::create('episodios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('numero');
+            $table->integer('numero')->nullable();
             $table->integer('temporada_id');
 
             $table->foreign('temporada_id')->references('id')
