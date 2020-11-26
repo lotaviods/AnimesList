@@ -17,25 +17,26 @@ Adicionar anime
 
 <form method="post">
     @csrf
-    <div class="row">
-        <div>
-            <label for="Nome">Anime: </label>
+    <div class="row col align-items-center">
+        
+            <label for="Nome">Anime: *</label>
             <input type="text" class="form-control" name="nome" id="nome">
-        </div>
-        <div class="col col-2">
+        
+        <div class="mb-2 mr-1">
             <label for="qtd_temporadas" class="">N° temporadas</label>
             <input type="number" class="form-control" name="qtd_temporadas" id="qtd_temporadas">
+        
         </div>
-
-        <div class="col col-2">
+        <div class="mb-2 mr-1">
             <label for="ep_por_temporada" class="">Ep. por temporada</label>
             <input type="number" class="form-control" name="ep_por_temporada" id="ep_por_temporada">
         </div>
-
     </div>
-    <button class="btn btn-primary mt-2">
+    <button class="btn btn-success">
         Adicionar
     </button>
+
+</div>
 </form>
 </div>
 </body>

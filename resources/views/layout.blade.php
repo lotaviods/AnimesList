@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="mb-2">
         <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}" style="color:white">
@@ -79,7 +79,8 @@
         </nav>
     </div>
     <div class="container">
-        <div class="jumbotron">
+        <div class="jumbotron bg-dark">
+
             <h2>@yield('head')</h2>
         </div>
 
