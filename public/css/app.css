@@ -76,7 +76,7 @@ body {
     font-size: .9rem;
     font-weight: 400;
     line-height: 1.6;
-    color: #000000;
+    color: #ffffff;
     text-align: left;
     background-color: #000000
 }
@@ -491,7 +491,7 @@ mark {
 }
 
 .list-inline-item {
-    display: inline-block
+    display: inline-block;
 }
 
 .list-inline-item:not(:last-child) {
@@ -8743,7 +8743,8 @@ a.text-dark:hover {
     }
     h2,
     h3 {
-        page-break-after: avoid
+        page-break-after: avoid;
+        color: var(--white)
     }
     @page {
         size: a3
