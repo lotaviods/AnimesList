@@ -1,33 +1,27 @@
 <?php
 namespace App\Http\Controllers;
 
-use Error;
 use App\Anime;
-use App\Episodio;
-use Exception;
-use App\Temporada;
-use Illuminate\Http\Request;
-use App\Service\CriadorDeAnime;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AnimesFormResquest;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\AnimesDestroyRequest;
+use App\Http\Requests\AnimesFormResquest;
+use App\Service\CriadorDeAnime;
 use App\Service\RemovedorDeAnime;
-use Dotenv\Regex\Result;
-use SebastianBergmann\Environment\Console;
-use Symfony\Component\Console\Output\ConsoleOutput;
+use Illuminate\Auth\Access\Response;
+use Illuminate\Http\Request;
 
 class Animes extends Controller
 {
     public function index(Request $request)
     {
+
         $animes = Anime::query()->get();
         $mensagem = $request->session()->get('mensagem');
         $id = 0;
         return view('animes.index', [
             'animes' => $animes,
             'mensagem' => $mensagem,
-            'id'=>$id
+            'id' => $id,
         ]);
     }
 
@@ -45,7 +39,7 @@ class Animes extends Controller
 
     public function destroy(AnimesDestroyRequest $request, RemovedorDeAnime $removedorDeAnime)
     {
-        
+
         $nomeAnime = $removedorDeAnime->RemoverAnime($request->id);
         $request->session()->flash('mensagem', "O {$request->id}º anime foi excluído com sucesso");
         return redirect()->route('animes');
@@ -58,6 +52,5 @@ class Animes extends Controller
         $anime->nome = $novoNome;
         $anime->save();
     }
-
 
 }
