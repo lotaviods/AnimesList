@@ -42,4 +42,3 @@ Route::get('/sair', function () {
     return redirect('/entrar');
 });
 Route::get('upcoming', 'To_do@index')->name('To-do');
-Route::get('/api', 'Animes@api');

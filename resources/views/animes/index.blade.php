@@ -15,7 +15,7 @@
 <ul class="list-group">
     @foreach ($animes as $anime)
     <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span id="nome-anime-{{ $anime->id }}">{{ $anime->nome }}</span>
+        <span id="nome-anime-{{ $anime->id }}">{{ $anime->name }}</span>
         @auth
         <div class="input-group w-50" hidden id="input-nome-anime-{{ $anime->id }}">
             <input type="text" class="form-control" value="{{ $anime->nome }}">

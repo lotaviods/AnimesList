@@ -7,15 +7,19 @@ use App\Http\Requests\AnimesDestroyRequest;
 use App\Http\Requests\AnimesFormResquest;
 use App\Service\CriadorDeAnime;
 use App\Service\RemovedorDeAnime;
-use Illuminate\Auth\Access\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class Animes extends Controller
 {
     public function index(Request $request)
     {
+        $client = new \GuzzleHttp\Client();
+        $Apireq = $client->get('http://localhost:3000/api');
+        $Apires = $Apireq->getBody();
+        $animes = json_decode($Apires);
 
-        $animes = Anime::query()->get();
         $mensagem = $request->session()->get('mensagem');
         $id = 0;
         return view('animes.index', [
@@ -51,6 +55,12 @@ class Animes extends Controller
         $novoNome = $request->nome;
         $anime->nome = $novoNome;
         $anime->save();
+    }
+    public function api()
+    {
+
+        
+        return ($response);
     }
 
 }
