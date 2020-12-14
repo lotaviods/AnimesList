@@ -10,11 +10,13 @@
 @section('content')
 
 @include('mensagem', ['mensagem' => $mensagem])
-
+<input type="text" name= "filter" id= "filter" placeholder="Digite para buscar">
+<br>
 <a href="/animes/criar" class="btn btn-success mb-2"><i class="fa fa-plus" aria-hidden="true"></i></a>
+<ul class="procurado">a</ul>
 <ul class="list-group">
     @foreach ($animes as $anime)
-    <li class="list-group-item d-flex justify-content-between align-items-center">
+    <li class="list-group-item d-flex justify-content-between align-items-center animes" >
         <span id="nome-anime-{{ $anime->id }}">{{ $anime->nome }}</span>
         @auth
         <div class="input-group w-50" hidden id="input-nome-anime-{{ $anime->id }}">
@@ -84,6 +86,7 @@
         });
     }
 </script>
+<script src="js/filter.js"></script>
 </body>
 
 
