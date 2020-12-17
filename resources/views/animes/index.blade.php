@@ -16,7 +16,7 @@
 
 <br>
 <a href="/animes/criar" class="btn btn-success mb-2"><i class="fa fa-plus" aria-hidden="true"></i></a>
-<ul class="list-group">
+<ul class="list-group blob">
     @foreach ($animes as $anime)
     <li class="animes list-group-item d-flex justify-content-between align-items-center " >
         <span id="{{ $anime->nome }}">{{ $anime->nome }}</span>
