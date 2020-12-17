@@ -1,24 +1,29 @@
-var campoFiltro = document.querySelector("#filter");
+let campoFiltro = document.querySelector("#filter");
 
 campoFiltro.addEventListener("input", function(){
-    var animes = document.querySelectorAll(".animes");
+    let animes = document.querySelectorAll(".animes");
+
     if (this.value.length > 0){
         for(var i = 0; i< animes.length ; i++ ){
-            var anime = animes[i];
+            let anime = animes[i];
+            let nome = []
+            nome.push(anime.childNodes[1].textContent);
 
-            var nome = anime.childNodes[1].textContent;
-            var Busca = new RegExp(this.value, "i");
-            if (!Busca.test(nome)){
-                anime.classList.add("invisible");
+            let text = document.querySelector('#encontrados');
 
-            }else{
-                anime.classList.remove("invisible");
+            let Busca = new RegExp(this.value, "i");
+
+            if (Busca.test(nome)){ 
+                text.classList.remove("invisible");
+                text.innerHTML = nome;
             }
         }
     }else{
         for (var i = 0; i < animes.length; i++){
-            var anime = animes[i];
-            anime.classList.remove("invisible");
+            let text = document.querySelector('#encontrados');
+            text.classList.add("invisible");
         }
+
     }
+    
 });

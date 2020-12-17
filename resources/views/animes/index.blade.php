@@ -5,18 +5,20 @@
 <div class="text-nowrap bd-highlight" style="width: 8rem;">
   Lista de animes
 </div>
+
 @endsection
 
 @section('content')
 
 @include('mensagem', ['mensagem' => $mensagem])
 <input type="text" name= "filter" id= "filter" placeholder="Digite para buscar">
+<div id="encontrados" class="invisible"> 0 animes encontrados</div>
+
 <br>
 <a href="/animes/criar" class="btn btn-success mb-2"><i class="fa fa-plus" aria-hidden="true"></i></a>
-<ul class="procurado">a</ul>
 <ul class="list-group">
     @foreach ($animes as $anime)
-    <li class="list-group-item d-flex justify-content-between align-items-center animes" >
+    <li class="animes list-group-item d-flex justify-content-between align-items-center " >
         <span id="nome-anime-{{ $anime->id }}">{{ $anime->nome }}</span>
         @auth
         <div class="input-group w-50" hidden id="input-nome-anime-{{ $anime->id }}">
@@ -52,40 +54,7 @@
 
 </div>
 
-
-<script>
-    function toggleInput(animeId) {
-        const nomeanimeEl = document.getElementById(`nome-anime-${animeId}`);
-        const inputanimeEl = document.getElementById(`input-nome-anime-${animeId}`);
-        if (nomeanimeEl.hasAttribute('hidden')) {
-            nomeanimeEl.removeAttribute('hidden');
-            inputanimeEl.hidden = true;
-        } else {
-            inputanimeEl.removeAttribute('hidden');
-            nomeanimeEl.hidden = true;
-        }
-    }
-
-    function editaranime(animeId) {
-        let formData = new FormData();
-        const nome = document
-            .querySelector(`#input-nome-anime-${animeId} > input`)
-            .value;
-        const token = document
-            .querySelector(`input[name="_token"]`)
-            .value;
-        formData.append('nome', nome);
-        formData.append('_token', token);
-        const url = `/animes/${animeId}/editaNome`;
-        fetch(url, {
-            method: 'POST',
-            body: formData
-        }).then(() => {
-            toggleInput(animeId);
-            document.getElementById(`nome-anime-${animeId}`).textContent = nome;
-        });
-    }
-</script>
+<script src="js/change.js"></script>
 <script src="js/filter.js"></script>
 </body>
 
