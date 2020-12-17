@@ -12,14 +12,14 @@
 
 @include('mensagem', ['mensagem' => $mensagem])
 <input type="text" name= "filter" id= "filter" placeholder="Digite para buscar">
-<div id="encontrados" class="invisible"> 0 animes encontrados</div>
+<div id="encontrados"><a id= "link_encontrados" class="invisible"> </a> </div> <!-- itens buscados -->
 
 <br>
 <a href="/animes/criar" class="btn btn-success mb-2"><i class="fa fa-plus" aria-hidden="true"></i></a>
 <ul class="list-group">
     @foreach ($animes as $anime)
     <li class="animes list-group-item d-flex justify-content-between align-items-center " >
-        <span id="nome-anime-{{ $anime->id }}">{{ $anime->nome }}</span>
+        <span id="{{ $anime->nome }}">{{ $anime->nome }}</span>
         @auth
         <div class="input-group w-50" hidden id="input-nome-anime-{{ $anime->id }}">
             <input type="text" class="form-control" value="{{ $anime->nome }}">

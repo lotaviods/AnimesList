@@ -8794,3 +8794,7 @@ a.text-dark:hover {
     width: 320px;
     margin-bottom: 10px;
 }
+
+.filtercolor{
+    color: red;
+}
