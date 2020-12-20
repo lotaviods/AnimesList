@@ -17,10 +17,8 @@ campoFiltro.addEventListener("input", function(){
                 text.classList.remove("invisible");
                 text.innerHTML = nome;
                 text.href = `#${nome}`;
-                campoFiltro.addEventListener("keypress", function(){
-                    console.log("botão clicado"); // https://stackoverflow.com/questions/14542062/eventlistener-enter-key/50993410
-                });
-
+                
+                
                 anime.classList.remove("blob")
             }else{
                 anime.classList.add("blob")
