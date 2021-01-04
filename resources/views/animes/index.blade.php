@@ -13,12 +13,14 @@
 @include('mensagem', ['mensagem' => $mensagem])
 <input type="text" name= "filter" id= "filter" placeholder="Digite para buscar">
 <div id="encontrados"><a id= "link_encontrados" class="invisible"> </a> </div> <!-- itens buscados -->
-
 <br>
 <a href="/animes/criar" class="btn btn-success mb-2"><i class="fa fa-plus" aria-hidden="true"></i></a>
+<label class="invisible" id="cont">{{$a = 0}}</label>
 <ul class="list-group blob">
     @foreach ($animes as $anime)
+
     <li class="animes list-group-item d-flex justify-content-between align-items-center " >
+        
         <span id="{{ $anime->nome }}">{{ $anime->nome }}</span>
         @auth
         <div class="input-group w-50" hidden id="input-nome-anime-{{ $anime->id }}">
@@ -30,6 +32,7 @@
                 @csrf
             </div>
         </div>
+
     <span class="d-flex">
         <button class="btn btn-info btn-sm mr-1" onclick="toggleInput({{ $anime->id }})">
             <i class="fas fa-edit"></i>
@@ -47,7 +50,11 @@
             </button>
         @endauth
         </form>
+        <div class="col-md-2">
+            <label>{{$a += 1}}</label>
+        </div>
     </span>
+    
 </li>
     @endforeach
 </ul>
